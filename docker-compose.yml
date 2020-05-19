@@ -1,0 +1,13 @@
+version: '3'
+services:
+  php:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      # The "redis" value for REDIS_HOST matches the name of the container defined below
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  redis:
+    image: redis:6-alpine
